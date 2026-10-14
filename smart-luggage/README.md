@@ -3,6 +3,8 @@
 An intelligent luggage system based on **STM32F103C8 + FreeRTOS V11.1.0**,
 developed as a graduation project.
 
+**English** | [简体中文](README.zh-CN.md)
+
 ## Features
 
 | Feature | Hardware | Interface |
