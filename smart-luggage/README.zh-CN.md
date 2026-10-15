@@ -88,7 +88,7 @@ vTaskComm 为双状态循环。
 | 来源   | 触发条件                                                                    | 鸣响方式 |
 | ---- | ----------------------------------------------------------------------- | ---- |
 | 云端请求 | 收到 `BUZ:true`，置位 `SYS_BIT_REMOTE_BUZ`                                   | 持续鸣响 |
-| 链路断开 | comm_task 判定断连，置位 `SYS_BIT_ALARM`（当前由编译开关 `ALARM_ENABLE_LINK_ALARM` 屏蔽） | 间断鸣响 |
+| 链路断开 | comm_task 判定断连，置位 `SYS_BIT_ALARM`（由编译开关 `ALARM_ENABLE_LINK_ALARM` 控制，默认关闭） | 间断鸣响 |
 
 ```
 vTaskAlarm 阻塞于 Sys_WaitBits(SYS_BITS_BUZZER, 1000 ms)

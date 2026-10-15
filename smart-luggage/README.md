@@ -88,7 +88,7 @@ Two alarm sources, arbitrated by vTaskAlarm:
 | Source | Trigger | Tone |
 |---|---|---|
 | Cloud request | `BUZ:true` received; sets `SYS_BIT_REMOTE_BUZ` | Continuous |
-| Link loss | comm_task detects a broken link; sets `SYS_BIT_ALARM` (currently disabled by the `ALARM_ENABLE_LINK_ALARM` compile switch) | Intermittent |
+| Link loss | comm_task detects a broken link; sets `SYS_BIT_ALARM` (gated by the `ALARM_ENABLE_LINK_ALARM` compile switch, off by default) | Intermittent |
 
 ```
 vTaskAlarm blocks on Sys_WaitBits(SYS_BITS_BUZZER, 1000 ms)
