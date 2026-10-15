@@ -7,16 +7,7 @@
      char    Uart_String[200];
      GPS_Data_t GPS_Data;
      is_has_data() / Read_Uart_data() / GPS_ReadLine() / convert_dm_to_deg() /
-     ParseGGA() / GPS_Parse()
-
-   删掉的原因：
-     · 环形缓冲 + head/tail 在 ISR 与主循环之间【无任何保护】地共享
-     · 200 字节 @9600 只够 0.2 秒，主循环被拖住（指纹的 while 死等、Wifi_init 的
-       13 秒硬等）就静默溢出、NMEA 帧被截断
-   现在接收路径为：ISR 整行成帧 → gps_q 队列 → vTaskGps 里解析。
-
-   一并删掉的死代码：GET_Usart_Status() / GET_Usart_RxD() / isGPS_has_Date()，
-   全工程已无调用点（链接时本来就被裁掉）。 */
+     ParseGGA() / GPS_Parse()*/
 
 #include "Uart.h"                  // Device header
 #include "gps.h"                   /* Gps_RxByteFromISR —— USART1 的 ISR 用它拼行 */

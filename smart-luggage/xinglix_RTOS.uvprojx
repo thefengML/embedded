@@ -451,11 +451,6 @@
               <FilePath>.\code\secrets.h</FilePath>
             </File>
             <File>
-              <FileName>secrets.h.example</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\code\secrets.h.example</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_conf.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\code\stm32f10x_conf.h</FilePath>
@@ -784,11 +779,6 @@
               <FileName>ZW101.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\module\ZW101.c</FilePath>
-            </File>
-            <File>
-              <FileName>ZW101_Command.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\module\ZW101_Command.h</FilePath>
             </File>
             <File>
               <FileName>WIFI.h</FileName>

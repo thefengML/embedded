@@ -1,10 +1,5 @@
 /* key.c —— 锁（继电器 PB12）+ PA0 物理开关的初始化与开关动作。
-
-   已删除 Cheak_Clock()：它里面有一句 while (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0)
-   == RESET) {}，是核查报告里记的【第二处死等】，而且全工程从来没有调用点（死代码）。
-   PA0 物理开关的处理已搬进 lock.c 的 vTaskLock()，改成"边沿检测"—— 只在电平跳变时
-   动作一次，顺带修掉了"开关停在低位会每圈都发一次 MQTT"（核查报告里的 S7，
-   几秒钟就能把 OneNET 配额刷爆）。 */
+*/
 
 #include "stm32f10x.h"                  // Device header
 #include "key.h"   /* 原为 "KEY.h"，大小写与实际文件名不符，Linux 上会编译失败 */

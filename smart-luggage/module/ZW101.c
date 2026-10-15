@@ -1,19 +1,7 @@
 /* ZW101.c —— ZW101 指纹模块驱动：USART2 的寄存器配置与发送。
 
    接收路径与 PA1 处理整体在 lock.c。本文件不再做任何缓冲或解析。
-
-   相对裸机版删掉的东西：
-     uint8_t finger_LoopBuff[200];  uint8_t finger_Head, finger_Tail;
-     isFingerBuf_has_Data() / GET_FingerBuf_Data()       ← 环形缓冲轮询读取
-     Cheak_state() / Cheak_Uart_state() / UART_2_State   ← PA1 电平查询（全工程无人调用）
-
-   删掉的原因：
-     · 接收改成"ISR 按 ZW101 协议成帧 → 整帧投 finger_q → vTaskLock 解析"，
-       不再需要环形缓冲和那个轮询接口
-     · PA1 改 EXTI 中断唤醒，不需要再轮询它的电平
-
-   一并删除 PA4 / PA5 的下拉输入配置 —— 已确认原理图上这两个脚无设备接入，
-   是早期版本遗留（工程现状核查 §二 里标了"用途不明"，用户已核实为空脚）。 */
+    */
 
 #include "ZW101.h"
 #include "lock.h"       /* Lock_FingerRxByteFromISR —— USART2 的 ISR 用它成帧 */

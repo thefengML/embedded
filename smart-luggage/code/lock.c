@@ -21,7 +21,7 @@
  * 原来的定义在 module/ZW101_Command.h 里，但那个头文件是【直接定义数组变量】
  * 而不是声明 extern —— 任何第二个 .c 去 include 它都会造成重复定义，
  * 链接期报 multiple definition。所以这里改成 static const 收进本文件。
- * （原头文件保留不动，因为裸机版还在用。）
+ * 
  * ========================================================================== */
 static const uint8_t s_cmd_auto_identify[17] = {
     0xEF, 0x01, 0xFF, 0xFF, 0xFF, 0xFF, 0x01, 0x00, 0x08,
